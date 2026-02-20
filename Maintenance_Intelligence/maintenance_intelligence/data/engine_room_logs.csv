@@ -1,0 +1,16 @@
+date,equipment,log_text,downtime_hours
+2026-01-02,GTG-1,"High vibration alarm on turbine casing",2
+2026-01-03,LO Pump A,"Lube oil pressure dropped below spec",1.5
+2026-01-05,Diesel Gen 2,"Fuel injector malfunction detected",3
+2026-01-07,GTG-1,"Exhaust temp imbalance between stages",2.5
+2026-01-10,RO Pump,"Seal leak observed; pressure unstable",1
+2026-01-12,GTG-2,"Vibration trending upward; inspection recommended",0
+2026-01-15,SW Pump B,"Cavitation noise; suction pressure low",1
+2026-01-18,GTG-1,"Bearing temperature high; reduced load",1
+2026-01-20,FO Service Pump,"Fuel contamination suspected; filters clogged",2
+2026-01-22,Gen Breaker,"Breaker trip during load change; reset and monitored",0.5
+2026-01-24,LO Cooler,"Oil temp elevated; cooler fouling suspected",1
+2026-01-26,Diesel Gen 2,"Start failure; battery voltage low",1
+2026-01-28,Hydraulic Power Unit,"Pressure fluctuating; possible air in line",0.5
+2026-01-30,GTG-2,"Combustion instability noted; EGT scatter",1.5
+2026-02-01,GTG-1,"Vibration alarm again; secured for maintenance",4
