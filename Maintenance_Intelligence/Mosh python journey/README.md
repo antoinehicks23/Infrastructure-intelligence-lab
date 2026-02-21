@@ -17,8 +17,8 @@ and committed to muscle memory.
 | Topic | File | Status |
 |---|---|---|
 | Variables & Data Types | variables.py | ✅ Complete |
-| Lists & Tuples | lists_and_tuples.py | ✅ Complete |
-| Functions | functions_basics.py | 🔄 In Progress |
+| Lists & Tuples | lists_and_tuples.py | 🔄 in progress |
+| Functions | functions_basics.py | 🔄 in progress |
 | OOP / Classes | oop_classes.py | ⬜ Not Started |
 | File I/O | file_handling.py | ⬜ Not Started |
 | Error Handling | exceptions.py | ⬜ Not Started |
