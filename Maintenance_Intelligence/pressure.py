@@ -11,8 +11,3 @@ def detect_pressure_risk(pressure_list):
 			return "Normal"
 			
 			
-pressure = [-20, 5, -4, 2]
-
-
-result = detect_pressure_risk(pressure)
-print(result)
