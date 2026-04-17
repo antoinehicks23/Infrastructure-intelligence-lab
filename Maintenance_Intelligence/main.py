@@ -1,5 +1,6 @@
 from pressure import detect_pressure_risk
 from scoring import total_risk_score
+from report import print_risk_report
 
 
 def calculate_trend(values):
@@ -33,3 +34,11 @@ print("Pressure risk:", pressure_risk)
 
 score = total_risk_score(temp_risk, pressure_risk)
 print("Total risk score", score)
+
+
+
+equipment_name = " Generator 2"
+
+print_risk_report(
+	equipment_name, temp_risk, pressure_risk, score
+	)
