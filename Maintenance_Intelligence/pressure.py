@@ -9,5 +9,8 @@ def detect_pressure_risk(pressure_list):
 			
 		else: 
 			return "Normal"
-			
+
+if __name__ == "__main__":
+		pressure = [100, 95, 85]
+		print(detect_pressure_risk(pressure))
 			
