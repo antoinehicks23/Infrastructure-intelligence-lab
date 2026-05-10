@@ -4,7 +4,7 @@
   "metadata": {
     "colab": {
       "provenance": [],
-      "authorship_tag": "ABX9TyMPwfYtf49mH9sKEC9imhPx",
+      "authorship_tag": "ABX9TyM7FxSmJwiKgWFYrXR3NlIG",
       "include_colab_link": true
     },
     "kernelspec": {
@@ -90,7 +90,7 @@
         "id": "NWb0i9b2PiE5",
         "outputId": "62526245-edd7-4797-c49b-5a1aba6b8c6c"
       },
-      "execution_count": 6,
+      "execution_count": null,
       "outputs": [
         {
           "output_type": "stream",
@@ -115,7 +115,7 @@
         "id": "qJTe158mVR_h",
         "outputId": "bd015e2f-c2a6-4e72-a939-68c115fa8fe3"
       },
-      "execution_count": 15,
+      "execution_count": null,
       "outputs": [
         {
           "output_type": "stream",
@@ -142,7 +142,7 @@
         "id": "D0yk8f1uWNQ1",
         "outputId": "ea96ff98-6e08-44fe-ff24-95d1508b325c"
       },
-      "execution_count": 20,
+      "execution_count": null,
       "outputs": [
         {
           "output_type": "stream",
@@ -412,7 +412,7 @@
         "id": "JxzGsogzbC-O",
         "outputId": "51d96e28-91cd-4157-b46f-127c8c057c4c"
       },
-      "execution_count": 28,
+      "execution_count": null,
       "outputs": [
         {
           "output_type": "stream",
@@ -1192,7 +1192,7 @@
         "id": "PvStTIC6efFv",
         "outputId": "b9741a66-87e0-41e9-89c0-d0f388b4c399"
       },
-      "execution_count": 29,
+      "execution_count": null,
       "outputs": [
         {
           "output_type": "stream",
@@ -1226,9 +1226,10 @@
           "base_uri": "https://localhost:8080/"
         },
         "id": "Ec6jE9DPlIZY",
-        "outputId": "c193af83-9e90-4882-b884-503e7eba9c38"
+        "outputId": "c193af83-9e90-4882-b884-503e7eba9c38",
+        "collapsed": true
       },
-      "execution_count": 30,
+      "execution_count": null,
       "outputs": [
         {
           "output_type": "stream",
@@ -1870,6 +1871,62 @@
           ]
         }
       ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import yfinance as yf\n",
+        "df15 = yf.download('ES=F', interval='15m', period='60d')\n",
+        "df15.columns = ['_'.join(col).strip() if isinstance(col, tuple) else col for col in df15.columns]\n",
+        "df15.columns = [c.split('_')[0].lower() for c in df15.columns]\n",
+        "df15 = df [['open', 'high', 'low', 'close', 'volume']]\n",
+        "system3 = VPORBSystem(instrument='ES', equity=2000)\n",
+        "stats3 =system3.run_backtest(df15)\n",
+        "for k, v in stats3.items():\n",
+        "  print(f\"{k:<25}, {v}\")\n",
+        "\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 655
+        },
+        "collapsed": true,
+        "id": "ta80MsZvsc_C",
+        "outputId": "2efc95dc-77bc-4873-a8cf-b7e1a4db985e"
+      },
+      "execution_count": 9,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": [
+            "/tmp/ipykernel_89333/2145713439.py:2: FutureWarning: YF.download() has changed argument auto_adjust default to True\n",
+            "  df15 = yf.download('ES=F', interval='15m', period='60d')\n",
+            "[*********************100%***********************]  1 of 1 completed\n"
+          ]
+        },
+        {
+          "output_type": "error",
+          "ename": "NameError",
+          "evalue": "name 'df' is not defined",
+          "traceback": [
+            "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+            "\u001b[0;31mNameError\u001b[0m                                 Traceback (most recent call last)",
+            "\u001b[0;32m/tmp/ipykernel_89333/2145713439.py\u001b[0m in \u001b[0;36m<cell line: 0>\u001b[0;34m()\u001b[0m\n\u001b[1;32m      3\u001b[0m \u001b[0mdf15\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mcolumns\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0;34m[\u001b[0m\u001b[0;34m'_'\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mjoin\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mcol\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mstrip\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m \u001b[0;32mif\u001b[0m \u001b[0misinstance\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mcol\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mtuple\u001b[0m\u001b[0;34m)\u001b[0m \u001b[0;32melse\u001b[0m \u001b[0mcol\u001b[0m \u001b[0;32mfor\u001b[0m \u001b[0mcol\u001b[0m \u001b[0;32min\u001b[0m \u001b[0mdf15\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mcolumns\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      4\u001b[0m \u001b[0mdf15\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mcolumns\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0;34m[\u001b[0m\u001b[0mc\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0msplit\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m'_'\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;36m0\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mlower\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m \u001b[0;32mfor\u001b[0m \u001b[0mc\u001b[0m \u001b[0;32min\u001b[0m \u001b[0mdf15\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mcolumns\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m----> 5\u001b[0;31m \u001b[0mdf15\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mdf\u001b[0m \u001b[0;34m[\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;34m'open'\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m'high'\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m'low'\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m'close'\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m'volume'\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m      6\u001b[0m \u001b[0msystem3\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mVPORBSystem\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0minstrument\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0;34m'ES'\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mequity\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0;36m2000\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      7\u001b[0m \u001b[0mstats3\u001b[0m \u001b[0;34m=\u001b[0m\u001b[0msystem3\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mrun_backtest\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mdf15\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;31mNameError\u001b[0m: name 'df' is not defined"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "a9fsP_UZt0hM"
+      },
+      "execution_count": null,
+      "outputs": []
     }
   ]
 }
