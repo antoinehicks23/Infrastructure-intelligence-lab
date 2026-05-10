@@ -4,7 +4,7 @@
   "metadata": {
     "colab": {
       "provenance": [],
-      "authorship_tag": "ABX9TyM7FxSmJwiKgWFYrXR3NlIG",
+      "authorship_tag": "ABX9TyMyqGPhU2BlER3m9ibuU8aK",
       "include_colab_link": true
     },
     "kernelspec": {
@@ -1879,7 +1879,7 @@
         "df15 = yf.download('ES=F', interval='15m', period='60d')\n",
         "df15.columns = ['_'.join(col).strip() if isinstance(col, tuple) else col for col in df15.columns]\n",
         "df15.columns = [c.split('_')[0].lower() for c in df15.columns]\n",
-        "df15 = df [['open', 'high', 'low', 'close', 'volume']]\n",
+        "df15 = df15 [['open', 'high', 'low', 'close', 'volume']]\n",
         "system3 = VPORBSystem(instrument='ES', equity=2000)\n",
         "stats3 =system3.run_backtest(df15)\n",
         "for k, v in stats3.items():\n",
@@ -1889,35 +1889,44 @@
       "metadata": {
         "colab": {
           "base_uri": "https://localhost:8080/",
-          "height": 655
+          "height": 597
         },
         "collapsed": true,
         "id": "ta80MsZvsc_C",
-        "outputId": "2efc95dc-77bc-4873-a8cf-b7e1a4db985e"
+        "outputId": "817feae4-eeba-4b6b-d409-4cd605365c6d"
       },
-      "execution_count": 9,
+      "execution_count": 10,
       "outputs": [
         {
           "output_type": "stream",
           "name": "stderr",
           "text": [
-            "/tmp/ipykernel_89333/2145713439.py:2: FutureWarning: YF.download() has changed argument auto_adjust default to True\n",
+            "/tmp/ipykernel_89333/606353143.py:2: FutureWarning: YF.download() has changed argument auto_adjust default to True\n",
             "  df15 = yf.download('ES=F', interval='15m', period='60d')\n",
-            "[*********************100%***********************]  1 of 1 completed\n"
+            "\r[*********************100%***********************]  1 of 1 completed\n"
           ]
         },
         {
           "output_type": "error",
           "ename": "NameError",
-          "evalue": "name 'df' is not defined",
+          "evalue": "name 'VPORBSystem' is not defined",
           "traceback": [
             "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
             "\u001b[0;31mNameError\u001b[0m                                 Traceback (most recent call last)",
-            "\u001b[0;32m/tmp/ipykernel_89333/2145713439.py\u001b[0m in \u001b[0;36m<cell line: 0>\u001b[0;34m()\u001b[0m\n\u001b[1;32m      3\u001b[0m \u001b[0mdf15\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mcolumns\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0;34m[\u001b[0m\u001b[0;34m'_'\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mjoin\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mcol\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mstrip\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m \u001b[0;32mif\u001b[0m \u001b[0misinstance\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mcol\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mtuple\u001b[0m\u001b[0;34m)\u001b[0m \u001b[0;32melse\u001b[0m \u001b[0mcol\u001b[0m \u001b[0;32mfor\u001b[0m \u001b[0mcol\u001b[0m \u001b[0;32min\u001b[0m \u001b[0mdf15\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mcolumns\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      4\u001b[0m \u001b[0mdf15\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mcolumns\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0;34m[\u001b[0m\u001b[0mc\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0msplit\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m'_'\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;36m0\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mlower\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m \u001b[0;32mfor\u001b[0m \u001b[0mc\u001b[0m \u001b[0;32min\u001b[0m \u001b[0mdf15\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mcolumns\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m----> 5\u001b[0;31m \u001b[0mdf15\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mdf\u001b[0m \u001b[0;34m[\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;34m'open'\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m'high'\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m'low'\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m'close'\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m'volume'\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m      6\u001b[0m \u001b[0msystem3\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mVPORBSystem\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0minstrument\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0;34m'ES'\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mequity\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0;36m2000\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      7\u001b[0m \u001b[0mstats3\u001b[0m \u001b[0;34m=\u001b[0m\u001b[0msystem3\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mrun_backtest\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mdf15\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
-            "\u001b[0;31mNameError\u001b[0m: name 'df' is not defined"
+            "\u001b[0;32m/tmp/ipykernel_89333/606353143.py\u001b[0m in \u001b[0;36m<cell line: 0>\u001b[0;34m()\u001b[0m\n\u001b[1;32m      4\u001b[0m \u001b[0mdf15\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mcolumns\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0;34m[\u001b[0m\u001b[0mc\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0msplit\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m'_'\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;36m0\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mlower\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m \u001b[0;32mfor\u001b[0m \u001b[0mc\u001b[0m \u001b[0;32min\u001b[0m \u001b[0mdf15\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mcolumns\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      5\u001b[0m \u001b[0mdf15\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mdf15\u001b[0m \u001b[0;34m[\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0;34m'open'\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m'high'\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m'low'\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m'close'\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0;34m'volume'\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m----> 6\u001b[0;31m \u001b[0msystem3\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mVPORBSystem\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0minstrument\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0;34m'ES'\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mequity\u001b[0m\u001b[0;34m=\u001b[0m\u001b[0;36m2000\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m      7\u001b[0m \u001b[0mstats3\u001b[0m \u001b[0;34m=\u001b[0m\u001b[0msystem3\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mrun_backtest\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mdf15\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m      8\u001b[0m \u001b[0;32mfor\u001b[0m \u001b[0mk\u001b[0m\u001b[0;34m,\u001b[0m \u001b[0mv\u001b[0m \u001b[0;32min\u001b[0m \u001b[0mstats3\u001b[0m\u001b[0;34m.\u001b[0m\u001b[0mitems\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;31mNameError\u001b[0m: name 'VPORBSystem' is not defined"
           ]
         }
       ]
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "au6qOOyyxJWZ"
+      },
+      "execution_count": null,
+      "outputs": []
     },
     {
       "cell_type": "code",
