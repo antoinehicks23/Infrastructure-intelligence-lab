@@ -644,13 +644,31 @@ class SignalEngine:
         regime_allows_long  = regime in [RegimeState.TRENDING_UP,   RegimeState.RANGING]
         regime_allows_short = regime in [RegimeState.TRENDING_DOWN,  RegimeState.RANGING]
 
-        # ORB breakout detection
+        #ADX Regime Blend - weekly ORB vs Mean Reversion
+        atr = self.atr(df).iloc[-1]
+        adx = self.adx(df).iloc[-1]
         noise = NoiseFilter(self.cfg)
-        orb_eng = ORBEngine(self.cfg, self.instrument)
-        is_break, direction = orb_eng.is_orb_breakout(current_bar, orb)
-
-        if not is_break or direction == Direction.FLAT:
-            return None
+        orb_eng = ORBengine(self.cfg, self.instrument)
+        
+        if adx >= self.cfg["adx_trend_threshold"]
+            # TRENDING MODE - Trade Weekly ORB breakout
+            is_break, direction = orb_engine.is_orb_breakout(current_bar, orb)
+            if not is_breakout or direction = Direction.FLAT:
+                return none
+            mode = "ORB_BREAKOUT"
+            
+        else:
+            #RANGING MODE - Mean Revision to POC
+            price = current_bar["close"]
+            atr_buffer = atr * 1.0
+            
+            if price > vp.vah + atr_buffer:
+                direction = Direction.SHORT
+            elif price < vp.val - atr_buffer:
+                direction = Direction.LONG
+            else:
+                return None
+            mode = "MEAN REVERSION"
 
         # Regime gating
         if direction == Direction.LONG  and not regime_allows_long:
@@ -703,7 +721,7 @@ class SignalEngine:
             rr_ratio   = round(rr, 2),
             size       = size,
             confidence = round(confidence, 3),
-            reason     = f"ORB {direction.value} | VP: {vp_reason} | Regime: {regime.value}",
+            reason     = f"{mode} {direction.value} | VP {vp_reason} | Regime: {regime.value} | ADX {add: .1f}",
             timestamp  = str(df.index[-1])
         )
         log.info(f"SIGNAL GENERATED: {signal}")
