@@ -622,6 +622,16 @@ class SignalEngine:
         if regime == RegimeState.HIGH_VOL:
             log.debug("Regime HIGH_VOL — no trades")
             return None
+            
+        # Fundamental noise filter - skip high impact news days
+        noise_dates = [
+            "Wednesday",  # EIA inventory report (CL) # Add FOMC and NFP dates manually or via API later
+        ]
+        current_day = pd.Timestamp(df.index[-1]).day_name()
+        if current_day in noise_dates and self.instrument == "CL":
+            log.debug("EIA report day - skipping CL trade")
+            return None
+
 
         if not orb.valid:
             log.debug("ORB not valid yet")
