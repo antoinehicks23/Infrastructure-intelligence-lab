@@ -1032,9 +1032,10 @@ class RiskEngine:
             "total_pnl":       sum(pnls),
             "current_equity":  self.equity,
             "equity_peak":     self.equity_peak,
-            "max_drawdown":    (self.equity_peak - min([self.equity_peak - sum(pnls[:i]) for i in range(len(pnls)+1)])) / self.equity_peak
+            "max_drawdown":    (self.equity_peak - min([self.equity_peak - sum(pnls[:i]) for i in range(len(pnls)+1)])) / self.equity_peak,
+            "sharpe ratio": round((np.mean(pnls) / (np.std(pnls) + 1e-9)) * np.sqrt(52), 4)
         }
-"sharpe ratio": round((np.mean(pnls) / (np.std(pnls) + 1e-9)) * np.sqrt(52), 4) 
+ 
 
 # ─────────────────────────────────────────────
 # LAYER 8: ADAPTIVE LEARNING LOGGER
