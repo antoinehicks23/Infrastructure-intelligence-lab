@@ -813,6 +813,34 @@ class SignalEngine:
         pc = c.shift(1)
         tr = pd.concat([(h-l), (h-pc).abs(), (l-pc).abs()], axis=1).max(axis=1)
         return tr.ewm(alpha=1/p, adjust=False).mean()
+        
+        def _adx(self, df: pd.DataFrame) -> pd.Series:
+            p     = self.cfg["adx_period"]
+            high  = df["high"]
+            low   = df["low"]
+            close = df["close"]
+            up_move    = high.diff()
+            down_move  = -low.diff()
+            plus_dm    = pd.Series(
+                np.where((up_move > down_move) & (up_move > 0), up_move, 0.0),
+                index = df.index
+            )
+            minus_dm = pd.Series(
+                np.where((down_move > up_move) & (down_move > 0), down_move, 0.0),
+                index = df.index
+            )
+            prev_close = close.shift(1)
+            tr = pd.concat([
+                 high - low,
+                 (high - prev_close).abs(),
+                 (low - prev_close).abs()
+            ], axis=1).max(axis=1)
+            atr      = tr.ewm(alpha=1/p, adjust=False).mean()
+            plus_di  = 100 * plus_dm.ewm(alpha=1/p, adjust=False).mean() / atr
+            minus_di = 100 * minus_dm.ewm(alpha=1/p, adjust=False).mean() / atr
+            dx = 100 * (plus_di - minus_di).abs() / (plus_di + minus_di + 1e-9)
+            adx = dx.ewm(alpha=1/p, adjust=False).mean()
+            return adx
 
     def _confidence_score(
         self,
