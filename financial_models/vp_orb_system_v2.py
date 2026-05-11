@@ -922,7 +922,8 @@ class TradeManager:
             pnl_pts = signal.entry - exit_price
 
         # Rough PnL estimate (exact for futures, approximate for forex)
-        pnl_dollars = pnl_pts * (tick_val / tick_sz) * signal.size
+        commission = 4.50 # per round trip
+        pnl_dollars = (pnl_pts * (tick_val / tick_sz) * signal.size) - commision
 
         if pnl_pts > 0:
             outcome = "WIN"
