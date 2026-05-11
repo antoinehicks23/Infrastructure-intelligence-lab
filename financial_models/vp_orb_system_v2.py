@@ -150,11 +150,11 @@ SYSTEM_CONFIG = {
 
     # Volume Profile
     "value_area_pct":            0.70,    # 70% of volume
-    "vp_lookback_bars":          100,     # bars used to build profile
+    "vp_lookback_bars":          52,     # bars used to build profile
     "price_bucket_pct":          0.001,   # price bucket granularity
 
     # ORB
-    "orb_minutes":               15,      # configurable per instrument
+    "orb_minutes":               1440,      # configurable per instrument
     "orb_breakout_buffer":       0.0002,  # 2bp buffer above/below ORB
 
     # Noise filters
@@ -173,8 +173,8 @@ SYSTEM_CONFIG = {
     # Trade management
     "trail_activate_at_1r":      True,    # move stop to BE after 1R
     "trail_at_2r_to_1r":         True,    # trail stop to +1R after 2R
-    "max_hold_bars":             48,      # time-based exit
-    "time_cutoff_minutes_before_close": 30,
+    "max_hold_bars":             5,      # time-based exit
+    "time_cutoff_minutes_before_close": 0,
 
     # Scaling
     "equity_step_for_rescale":   500.0,   # recalculate size every $500 gain
