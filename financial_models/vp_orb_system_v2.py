@@ -650,11 +650,11 @@ class SignalEngine:
         noise = NoiseFilter(self.cfg)
         orb_eng = ORBengine(self.cfg, self.instrument)
         
-        if adx >= self.cfg["adx_trend_threshold"]
+        if adx >= self.cfg["adx_trend_threshold"]:
             # TRENDING MODE - Trade Weekly ORB breakout
             is_break, direction = orb_engine.is_orb_breakout(current_bar, orb)
-            if not is_breakout or direction = Direction.FLAT:
-                return none
+            if not is_break or direction == Direction.FLAT:
+                return None 
             mode = "ORB_BREAKOUT"
             
         else:
@@ -721,7 +721,7 @@ class SignalEngine:
             rr_ratio   = round(rr, 2),
             size       = size,
             confidence = round(confidence, 3),
-            reason     = f"{mode} {direction.value} | VP {vp_reason} | Regime: {regime.value} | ADX {add: .1f}",
+            reason     = f"{mode} {direction.value} | VP {vp_reason} | Regime: {regime.value} | ADX {adx:.1f}",
             timestamp  = str(df.index[-1])
         )
         log.info(f"SIGNAL GENERATED: {signal}")
