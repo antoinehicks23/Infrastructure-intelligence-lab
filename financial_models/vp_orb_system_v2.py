@@ -979,7 +979,7 @@ class TradeManager:
 
         # Rough PnL estimate (exact for futures, approximate for forex)
         commission = 4.50 # per round trip
-        pnl_dollars = (pnl_pts * (tick_val / tick_sz) * signal.size) - commision
+        pnl_dollars = (pnl_pts * (tick_val / tick_sz) * signal.size) - commission
 
         if pnl_pts > 0:
             outcome = "WIN"
