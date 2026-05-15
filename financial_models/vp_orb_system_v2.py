@@ -645,8 +645,8 @@ class SignalEngine:
         regime_allows_short = regime in [RegimeState.TRENDING_DOWN,  RegimeState.RANGING]
 
         #ADX Regime Blend - weekly ORB vs Mean Reversion
-        atr = self.atr(df).iloc[-1]
-        adx = self.adx(df).iloc[-1]
+        atr = self._atr(df).iloc[-1]
+        adx = self._adx(df).iloc[-1]
         noise = NoiseFilter(self.cfg)
         orb_eng = ORBengine(self.cfg, self.instrument)
         
