@@ -814,7 +814,7 @@ class SignalEngine:
         tr = pd.concat([(h-l), (h-pc).abs(), (l-pc).abs()], axis=1).max(axis=1)
         return tr.ewm(alpha=1/p, adjust=False).mean()
         
-        def _adx(self, df: pd.DataFrame) -> pd.Series:
+    def _adx(self, df: pd.DataFrame) -> pd.Series:
             p     = self.cfg["adx_period"]
             high  = df["high"]
             low   = df["low"]
