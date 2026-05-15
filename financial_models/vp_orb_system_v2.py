@@ -648,7 +648,7 @@ class SignalEngine:
         atr = self._atr(df).iloc[-1]
         adx = self._adx(df).iloc[-1]
         noise = NoiseFilter(self.cfg)
-        orb_eng = ORBengine(self.cfg, self.instrument)
+        orb_eng = ORBEngine(self.cfg, self.instrument)
         
         if adx >= self.cfg["adx_trend_threshold"]:
             # TRENDING MODE - Trade Weekly ORB breakout
