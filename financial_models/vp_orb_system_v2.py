@@ -652,7 +652,7 @@ class SignalEngine:
         
         if adx >= self.cfg["adx_trend_threshold"]:
             # TRENDING MODE - Trade Weekly ORB breakout
-            is_break, direction = orb_engine.is_orb_breakout(current_bar, orb)
+            is_break, direction = orb_eng.is_orb_breakout(current_bar, orb)
             if not is_break or direction == Direction.FLAT:
                 return None 
             mode = "ORB_BREAKOUT"
