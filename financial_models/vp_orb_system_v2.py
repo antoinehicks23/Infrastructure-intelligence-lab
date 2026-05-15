@@ -970,7 +970,7 @@ class TradeManager:
     def close(self, trade_id: str, exit_price: float, reason: str) -> TradeResult:
         t      = self.open_trades.pop(trade_id)
         signal = t["signal"]
-        tick_sz, tick_val, _, _, _ = INSTRUMENT_CONFIG.get(signal.reason.split("|")[0].strip(), (1, 1, 1, 15, time(9, 30)))
+        tick_sz, tick_val = 0.10, 10.00  # TODO v3: pass instrument to TradeManager properly
 
         if signal.direction == Direction.LONG:
             pnl_pts = exit_price - signal.entry
