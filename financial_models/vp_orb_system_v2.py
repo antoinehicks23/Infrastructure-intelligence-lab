@@ -1354,7 +1354,7 @@ def generate_synthetic_ohlcv(n: int = 5000, seed: int = 42) -> pd.DataFrame:
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="VP-ORB Algorithmic Trading System")
     parser.add_argument("--mode",       default="backtest", choices=["backtest", "paper"])
-    parser.add_argument("--symbol",     default="ES")
+    parser.add_argument("--symbol",     default="GC")
     parser.add_argument("--capital",    default=2000.0, type=float)
     args = parser.parse_args()
 
