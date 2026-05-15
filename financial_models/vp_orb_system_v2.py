@@ -633,7 +633,7 @@ class SignalEngine:
             return None
 
 
-        if not orb.valid:
+        if not orb.valid and regime != RegimeState.RANGING:
             log.debug("ORB not valid yet")
             return None
 
