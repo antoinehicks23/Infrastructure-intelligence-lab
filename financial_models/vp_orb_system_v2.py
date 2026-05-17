@@ -744,10 +744,14 @@ class SignalEngine:
         price = bar["close"]
 
         if direction == Direction.LONG:
+            if price < vp.val:
+                return True, f"Below VAL ({vp.val:.5f}) -mean reversion long", 0.15
             if price > vp.vah:
                 return True, f"Above VAH ({vp.vah:.5f}) — breakout", 0.2
             if price > vp.poc and price < vp.vah:
                 return True, f"Above POC ({vp.poc:.5f}), approaching VAH", 0.0
+                if price > vp.vah:
+                    return True, f"Above VAH ({vp.vah:.5f}) - mean reversion short", 0.15
             return False, f"Price {price:.5f} below POC {vp.poc:.5f} — no long edge", 0.0
 
         else:  # SHORT
